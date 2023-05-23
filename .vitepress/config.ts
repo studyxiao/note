@@ -42,7 +42,7 @@ const sidebar = {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/',
+  base: '/note/',
   title: '笔记',
   lang: 'zh-CN',
   description: '关于 Vue.js Python Linux 等技术的笔记',
