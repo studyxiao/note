@@ -1,8 +1,4 @@
----
-title: Example
----
-
-文档编写示例
+# 文档编写示例
 
 ## Markdown
 
@@ -53,7 +49,7 @@ pnpm add -D @vueuse/core
 
 ### Image
 
-![image](../assets/images/profile.png)
+![image](/images/profile.png)
 
 ### More
 
@@ -61,23 +57,26 @@ https://vitepress.dev/guide/markdown
 
 ## Vue 组件
 
-### 直接编写
-
-<script setup lang="ts">
-import HellowWorld from "@.vitepress/theme/components/HelloWorld.vue"
-const msg = ref('Hello world!')
-</script>
-<p>{{ msg }}</p>
-
 ### 引入
-
-在 `.vitepress/theme/components` 目录下创建 `HelloWorld.vue` 文件，因为配置了 `auto component` 所以支持自动导入，直接使用
 
 <HelloWorld />
 
+在 `.vitepress/theme/components` 目录下创建 `HelloWorld.vue` 文件，因为配置了 `auto component` 所以支持自动导入，直接使用
+
+### 直接使用
+
+<script setup>
+const togger = ref(false)
+</script>
+
+{{ togger }}
+
+::: danger
+因为自动导入的原因（BUG），script 标签只能在【引入组件】之后，否则需要手动导入。
+:::
 
 ### 使用 icon
 
 <i-carbon-sun />
 
-<i-my-icons-logo />
+<!-- <i-my-icons-logo /> -->

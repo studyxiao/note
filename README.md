@@ -9,3 +9,9 @@
 - vueuse/core 实用工具库
 - icon 图标库
 - tailwindcss
+
+
+## 使用
+
+- public 中的favicon.svg
+- .vitepress/config.ts 中 title、description

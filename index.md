@@ -7,7 +7,7 @@ hero:
   text: "A Python Web Developer and A Wizard who doesn't know magic."
   tagline: My great project tagline
   image:
-    src: assets/images/profile.png
+    src: /images/profile.png
     alt: studyxiao
   actions:
     - theme: brand

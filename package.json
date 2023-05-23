@@ -1,11 +1,9 @@
 {
-  "name": "doc",
+  "name": "note",
   "version": "1.0.0",
+  "description": "markdown notes",
   "packageManager": "pnpm@8.5.1",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
@@ -28,9 +26,7 @@
     "unplugin-auto-import": "^0.16.2",
     "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.24.1",
-    "vite": "^4.3.8",
-    "vitepress": "1.0.0-beta.1",
-    "vue-tsc": "^1.6.5"
+    "vitepress": "1.0.0-beta.1"
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",

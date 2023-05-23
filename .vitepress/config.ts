@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
-import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
-import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import IconsResolver from 'unplugin-icons/resolver'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 // 顶部导航（一级）
 const nav = [
@@ -47,7 +47,7 @@ export default defineConfig({
   lang: 'zh-CN',
   description: '关于 Vue.js Python Linux 等技术的笔记',
   head: [
-    ['link', { rel: 'icon', href: '/assets/svg/logo.svg' }],
+    ['link', { rel: 'icon', href: '/note/favicon.svg', type: 'image/svg+xml' }],
   ],
   cleanUrls: true,
   lastUpdated: true,
@@ -56,7 +56,7 @@ export default defineConfig({
     siteTitle: 'StudyXiao',
 
     lastUpdatedText: '最后更新于',
-    logo: '/assets/icons/logo.svg',
+    logo: '/favicon.svg',
     footer: {
       copyright: 'Copyright © 2023-present Studyxiao',
     },
@@ -115,9 +115,9 @@ export default defineConfig({
         // 生成的 .d.ts 文件以支持 TS 语法提示
         dts: 'auto-imports.d.ts',
         // 自定义函数，嵌套路径需 `module/**`
-        dirs: [
-          '.vitepress/composables',
-        ],
+        // dirs: [
+        //   '.vitepress/composables',
+        // ],
         // 支持在 template 中使用
         vueTemplate: true,
       }),
@@ -143,7 +143,7 @@ export default defineConfig({
         customCollections: {
         // <i-my-icons-[name] />
           'my-icons': FileSystemIconLoader(
-            'assets/icons',
+            'public/icons',
             svg => svg.replace(/^<svg /, '<svg fill="currentColor" '),
           ),
         },
