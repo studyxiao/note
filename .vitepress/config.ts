@@ -68,7 +68,7 @@ export default defineConfig({
     returnToTopLabel: '返回顶部',
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/studyxiao/note' },
     ],
     search: {
       provider: 'local',
