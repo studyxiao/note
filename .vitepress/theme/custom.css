@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .vitepress/theme/custom.css */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+}
+
+.image-src {
+  transition: filter 300ms;
+}
+.image-src:hover{
+  filter: drop-shadow(0 0 2em #9c5efeaa);
+}
