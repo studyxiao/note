@@ -12,5 +12,5 @@
   transition: filter 300ms;
 }
 .image-src:hover{
-  filter: drop-shadow(0 0 2em #9c5efeaa);
+  filter: drop-shadow(0 0 2em #666666aa);
 }

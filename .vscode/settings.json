@@ -2,5 +2,7 @@
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "markdown.occurrencesHighlight.enabled": true,
+  "markdown.updateLinksOnFileMove.enabled": "prompt"
 }
