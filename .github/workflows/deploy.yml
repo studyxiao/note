@@ -1,3 +1,4 @@
+# Node.js + pnpm
 name: Deploy
 on:
   workflow_dispatch: {}
@@ -6,6 +7,7 @@ on:
       - main
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -14,21 +16,27 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+      - name: Setup Node and cache pnpm
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: pnpm
-      - run: pnpm install
-      - name: Build
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Build Site
         run: pnpm run docs:build
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
+      - name: Enable Pages App
+        uses: actions/configure-pages@v2
+      - name: Packaging and Uploading to Stage
+        uses: actions/upload-pages-artifact@v1
         with:
           path: .vitepress/dist
-      - name: Deploy
+      - name: Deploy from Stage
         id: deployment
         uses: actions/deploy-pages@v1

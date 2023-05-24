@@ -1,3 +1,6 @@
+![Deploy](https://github.com/studyxiao/note/actions/workflows/deploy.yml/badge.svg
+)
+
 ## Markdown Blog
 
 基于 vitepress 的 markdown 博客
