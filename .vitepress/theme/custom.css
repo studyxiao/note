@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 /* .vitepress/theme/custom.css */
+/* https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
 :root {
+  --vp-c-brand: #8A2BE2;
+  --vp-c-brand-light: #B23AEE;
+  --vp-c-brand-lighter: #C875FF;
+  --vp-c-brand-lightest: #E6CCFF;
+  --vp-c-brand-dark: #4B0082;
+  --vp-c-brand-darker: #2E0854;
+  --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 }

@@ -1,11 +1,12 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
+#Studyxiao is a Python web developer, or perhaps more accurately described as a wizard without magic.
+#studyxiao is a Python web developer, perhaps also known as a wizard who doesn't know "magic".
 hero:
   name: "Studyxiao"
-  text: "A Python Web Developer and A Wizard who doesn't know magic."
-  tagline: My great project tagline
+  text: "A Python Web Developer"
+  tagline: perhaps more accurately described as a Wizard without Magic.
   image:
     src: /images/profile.png
     alt: studyxiao

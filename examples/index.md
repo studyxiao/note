@@ -79,4 +79,4 @@ const togger = ref(false)
 
 <i-carbon-sun />
 
-<!-- <i-my-icons-logo /> -->
+<i-my-icons-logo />

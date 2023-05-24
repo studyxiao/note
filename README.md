@@ -18,3 +18,7 @@
 
 - public 中的favicon.svg
 - .vitepress/config.ts 中 title、description
+
+## BUG
+
+- logo 暗色主题适配
