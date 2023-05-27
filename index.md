@@ -16,7 +16,7 @@ hero:
       link: /vue/
     - theme: alt
       text: Python
-      link: /python/
+      link: /python/development
 
 features:
   - icon: 😍

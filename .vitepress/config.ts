@@ -14,7 +14,7 @@ const nav = [
   },
   {
     text: 'Python',
-    link: '/python/',
+    link: '/python/development',
   },
 ]
 
@@ -34,7 +34,9 @@ const sidebar = {
     {
       text: 'Python',
       items: [
-        // { text: 'Index', link: '/python/index' },
+        { text: '应用开发指南', link: '/python/development' },
+        { text: 'Git', link: '/python/git' },
+        { text: 'Docker', link: '/python/docker' },
       ],
     },
   ],
