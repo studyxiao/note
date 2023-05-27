@@ -386,7 +386,7 @@ docker-compose up -scale server_name=number
 
 指定secret配置，在 docker-compose.yml 同目录下创建 .env 文件，或者使用 `docker-compose --env-file <env_path>`指定环境变量位置。
 
-```basj
+```sh
 REDIS_PASSWORD=123
 ```
 
@@ -406,21 +406,21 @@ services:
 depends_on 只能依赖是否启动服务，但是不能保证服务是否正常。结合健康检测可以更好的维护启动。
 
 ```yaml
-version: "3.8"
+version: '3.8'
 services:
   web:
     image: image
     depends_on:
-      - redis：
-        condition: service_healthy  # 依赖 healthy
+      redis:
+        condition: service_healthy # 依赖 healthy
   redis:
     image: redis:latest
-    healthcheck:  # 检查
-      test: ['CMD', 'redis-cli', 'ping']
-      interval: 10s  #
-      timeout: 10s  # 超时限制
+    healthcheck: # 检查
+      test: [CMD, redis-cli, ping]
+      interval: 10s #
+      timeout: 10s # 超时限制
       start_period: 10s
-      retries: 3  # 重试次数
+      retries: 3 # 重试次数
 ```
 
 - test 要测试的命令
