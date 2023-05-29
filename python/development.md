@@ -375,7 +375,6 @@ build relase run.
 ## 监控
 
 - log 开发不关心具体输出到哪里，统一 stdout，开发直接输出，生成由部署环境决定。
-- REPL Shell 在线调试。
 
 ## Reference
 
