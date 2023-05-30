@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BaseCard: typeof import('./.vitepress/theme/components/BaseCard.vue')['default']
     HelloWorld: typeof import('./.vitepress/theme/components/HelloWorld.vue')['default']
     ICarbonSun: typeof import('~icons/carbon/sun')['default']
     IMyIconsLogo: typeof import('~icons/my-icons/logo')['default']
