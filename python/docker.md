@@ -149,7 +149,9 @@ CMD ["gunicorn", "--worker-tmp-dir", "/dev/shm", "--bind", "0.0.0.0:8000", "wsgi
 
 #### 新语法
 
-启用新语法，比如缓存 RUN
+启用新语法，比如缓存 RUN COPY
+
+https://www.docker.com/blog/image-rebase-and-improved-remote-cache-support-in-new-buildkit/
 
 
 ```dockerfile {1}
