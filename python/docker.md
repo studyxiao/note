@@ -474,10 +474,16 @@ redis-server /usr/local/etc/redis/redis.config
 ```sh [RabbitMQ]
 docker run -it -d --name mq \
 -p 5672:5672 \
+-p 15672:15672 \
 --net backend --ip 172.20.0.5 \
 -m 500m \
--e TZ=Asia/Shanghai --privileged=true \
-rabbitmq
+-e TZ=Asia/Shanghai \
+-e RABBITMQ_DEFAULT_USER=guest \
+-e RABBITMQ_DEFAULT_PASS=guest \
+-e RABBITMQ_DEFAULT_VHOST=/ \
+--privileged=true \
+rabbitmq:3.8.27-management-alpine
+
 ```
 :::
 
