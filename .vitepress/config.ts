@@ -38,6 +38,7 @@ const sidebar = {
         { text: 'Git', link: '/python/git' },
         { text: 'Docker', link: '/python/docker' },
         { text: '项目管理', link: '/python/project' },
+        { text: 'Type Hints', link: '/python/type_hints' },
       ],
     },
   ],
