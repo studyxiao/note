@@ -1,8 +1,6 @@
 ---
 title: Type Hints
 ---
-- 输入尽可能是包含所有类型
-- 输出尽可能是最小的类型
 
 ## 是什么
 
@@ -208,10 +206,6 @@ class OrdinalNode(Node[int]):
 
 ### 鸭子类型 Protocol
 
-```python
-
-```
-
 相较于抽象类(abc.ABC)
 - 定义时无需在方法上加abstractmethod等装饰器
 - “子”类定义时无需继承，只要你定义方法就行（这也是弊端，不知道哪些方法需要实现）
@@ -249,12 +243,12 @@ def fun(a: OtherObj):
 
 ### 动态时获取 type hints
 
+注解会绑定到对象的`__annotations__`属性上，目前版本会返回具体类型，未来版本可能会指返回字符串，所以要真正获得类型，需要使用`get_annotations`函数
+
 ```python
-# 会绑定到对象的`__annotations__`属性上，目前版本会返回具体类型，未来版本可能会指返回字符串，所以要真正获得类型，需要使用`get_annotations`函数
 from inspect import get_annotations
 
 get_annotations(func)  # dict[str, obj]
-
 ```
 ## References
 
@@ -262,4 +256,4 @@ get_annotations(func)  # dict[str, obj]
 - https://www.playfulpython.com/type-hinting/
 - https://lemonfold.io/posts/2022/dbc/typed_decorator/ 装饰器类型提示
 - [Python interfaces: abandon ABC and switch to Protocols](https://levelup.gitconnected.com/python-interfaces-choose-protocols-over-abc-3982e112342e)
-- https://www.reddit.com/r/Python/comments/10zdidm/why_type_hinting_sucks/ Type Hints 争议，不能忙不追求类型提示
+- https://www.reddit.com/r/Python/comments/10zdidm/why_type_hinting_sucks/ Type Hints 争议，不要盲目追求类型提示
