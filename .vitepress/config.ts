@@ -41,6 +41,7 @@ const sidebar = {
         { text: 'Type Hints', link: '/python/type_hints' },
         { text: 'Web API 设计', link: '/python/restful_api' },
         { text: '数据模型', link: '/python/model' },
+        { text: '数据校验', link: '/python/schema' },
         { text: '认证和鉴权', link: '/python/auth' },
       ],
     },
