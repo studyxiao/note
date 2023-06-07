@@ -40,6 +40,7 @@ const sidebar = {
         { text: '项目管理', link: '/python/project' },
         { text: 'Type Hints', link: '/python/type_hints' },
         { text: 'Web API 设计', link: '/python/restful_api' },
+        { text: '数据模型', link: '/python/model' },
         { text: '认证和鉴权', link: '/python/auth' },
       ],
     },
