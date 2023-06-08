@@ -241,3 +241,8 @@ with session:
 ## 参考资料
 
 - [SQLAlchemy 官方文档](https://docs.sqlalchemy.org/en/20/)
+- [Python DB-API](http://web.archive.org/web/20120815130844/http://www.amk.ca/python/writing/DB-API.html)
+- [DB-API 设计初衷](https://halfcooked.com/presentations/osdc2006/python_databases.html)
+- [SQLAlchemy 1.4 练习](https://github.com/zzzeek/sqla_tutorial)
+- [SQLModel - 结合 Pydantic 和 SQLAlchemy](https://github.com/tiangolo/sqlmodel)
+- [Write Your Own Flask SQLAlchemy Extension](https://shzhangji.com/blog/2022/06/26/write-your-own-flask-sqlalchemy-extension/)
