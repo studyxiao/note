@@ -9,7 +9,7 @@ title: Web API 风格指南
 - 版本：`/api/v1/`
 - 资源：URI表示某一资源
 - 动作：HTTP方法表示对资源的操作
-- 数据：JSON格式数据(请求和响应)，带校验
+- [数据](./schema.md)：JSON格式数据(请求和响应)，带校验
 - 状态码：HTTP状态码表示请求结果
 - [认证](./auth.md)：OAuth 2使用了[承载令牌(Bearer tokens](http://tools.ietf.org/html/rfc6750)) 并且依赖于SSL的底层传输加密。
 - 缓存：[ETag](http://en.wikipedia.org/wiki/HTTP_ETag)和[Last-Modified](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.29)
