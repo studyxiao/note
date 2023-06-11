@@ -43,6 +43,7 @@ const sidebar = {
         { text: '数据模型', link: '/python/model' },
         { text: '数据校验', link: '/python/schema' },
         { text: '认证和鉴权', link: '/python/auth' },
+        { text: '日志', link: '/python/log' },
       ],
     },
   ],

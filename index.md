@@ -5,7 +5,7 @@ layout: home
 #studyxiao is a Python web developer, perhaps also known as a wizard who doesn't know "magic".
 hero:
   name: "Studyxiao"
-  text: "A Python Web Developer"
+  text: "Pythonista"
   tagline: perhaps more accurately described as a Wizard without Magic.
   image:
     src: /images/profile.png

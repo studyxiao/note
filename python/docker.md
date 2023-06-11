@@ -520,6 +520,36 @@ dir ./
 requirepass abc123456
 ```
 
+::: code-group
+```yaml [compose.yaml]
+services:
+  index:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.7.0
+    expose:
+      - '9200'
+    ports:
+      - '127.0.0.1:9200:9200'
+    container_name: index
+    environment:
+      - node.name=index
+      - cluster.name=opensanctions-index
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - index-os-data:/usr/share/elasticsearch/data
+    deploy:
+      placement:
+        max_replicas_per_node: 1
+      restart_policy:
+        condition: on-failure
+```
+:::
 ## Reference
 
 [Docker Documentation](https://docs.docker.com/)
