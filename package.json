@@ -2,7 +2,7 @@
   "name": "note",
   "version": "1.0.0",
   "description": "markdown notes",
-  "packageManager": "pnpm@8.6.1",
+  "packageManager": "pnpm@8.6.2",
   "scripts": {
     "dev": "vitepress dev",
     "docs:dev": "vitepress dev",
@@ -17,7 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
-    "@iconify-json/carbon": "^1.1.17",
+    "@iconify-json/carbon": "^1.1.18",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.42.0",
