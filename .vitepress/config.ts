@@ -9,12 +9,12 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 const nav = [
   { text: 'Home', link: '/' },
   {
-    text: 'Vue',
-    link: '/vue/',
-  },
-  {
     text: 'Python',
     link: '/python/development',
+  },
+  {
+    text: 'Vue',
+    link: '/vue/',
   },
 ]
 
@@ -44,6 +44,7 @@ const sidebar = {
         { text: '数据校验', link: '/python/schema' },
         { text: '认证和鉴权', link: '/python/auth' },
         { text: '日志', link: '/python/log' },
+        { text: '任务队列', link: '/python/task' },
       ],
     },
   ],
