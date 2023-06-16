@@ -12,11 +12,11 @@ hero:
     alt: studyxiao
   actions:
     - theme: brand
-      text: Vue
-      link: /vue/
-    - theme: alt
       text: Python
       link: /python/development
+    - theme: alt
+      text: Vue
+      link: /vue/
 
 features:
   - icon: 😍
