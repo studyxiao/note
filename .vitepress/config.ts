@@ -47,6 +47,7 @@ const sidebar = {
         { text: '任务队列', link: '/python/task' },
         { text: 'Websocket', link: '/python/websocket' },
         { text: '搜索', link: '/python/search' },
+        { text: '文档', link: '/python/doc' },
       ],
     },
   ],
