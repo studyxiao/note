@@ -46,6 +46,7 @@ const sidebar = {
         { text: '日志', link: '/python/log' },
         { text: '任务队列', link: '/python/task' },
         { text: 'Websocket', link: '/python/websocket' },
+        { text: '搜索', link: '/python/search' },
       ],
     },
   ],

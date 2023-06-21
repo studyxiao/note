@@ -485,6 +485,20 @@ docker run -it -d --name mq \
 rabbitmq:3.8.27-management-alpine
 
 ```
+
+```sh [MeiliSearch]
+# Fetch the latest version of Meilisearch image from DockerHub
+docker pull getmeili/meilisearch:v1.2
+
+# Launch Meilisearch in development mode with a master key
+docker run -it --rm \
+    -p 7700:7700 \
+    -e MEILI_ENV='development' \
+    -e MEILI_MASTER_KEY='MASTER_KEY' \
+    -v $(pwd)/meili_data:/meili_data \
+    getmeili/meilisearch:v1.2
+# Use ${pwd} instead of $(pwd) in PowerShell
+```
 :::
 
 ::: code-group Config
