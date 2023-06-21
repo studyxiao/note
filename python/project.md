@@ -300,19 +300,247 @@ TODO list：
 
 ## 后台任务
 
+[Celery](./task.md)
+
 ## 搜索服务
+
+[Meilisearch](./search.md)
 
 ## 短信服务
 
+https://cloud.tencent.com/document/product/382/43196
+
 ## 通知服务
+
+[Websocket](./websocket.md)
 
 ## 静态资源
 
 
-## Github Ations
+## 自动化
+
+包括 pre-commit、CI/CD 等。
+
+### pre-commit
+
+在提交代码前，自动运行一些代码检查工具，如：black、ruff、mypy，如果检查失败，则不允许提交。
+
+```sh
+pip install -d pre-commit
+```
+
+::: code-group
+```yaml [.pre-commit-config.yaml]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: end-of-file-fixer
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.274
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        args: [--check]
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.314
+    hooks:
+      - id: pyright
+```
+:::
+
+安装 hooks
+```sh
+pdm run pre-commit install
+
+```
+
+手动触发
+```sh
+pdm run pre-commit run --all-files
+```
+
+大部分时候只需要在 commit 时自动运行。
+
+### format commit
+
+commit 信息格式化，如：`feat: add new feature`。也可以交给自动化工具。
+目前选择的是 https://www.conventionalcommits.org/en/v1.0.0/ 规范
+
+commitizen 是一个集成了 git cz 的工具，可以帮助我们生成符合规范的 commit message，同时也可以帮助我们生成 changelog，还可以帮助我们自动检查 commit message 是否符合规范。
+
+- 交互式生成 commit message （cz commit）
+  - `git commit` 不会有交互式界面
+  - `cz commit` 会提示需要填写的信息
+- 自动检查 commit message 是否符合规范（使用 pre-commit）
+https://commitizen-tools.github.io/commitizen/tutorials/auto_check/#automatically-check-message-before-commit
+- 暂时不需要版本管理，生成 changelog （cz bump）和发布相关内容
+
+### CI/CD
+
+- CI: 向远程仓库提交代码后，自动运行测试、计算代码覆盖率、构建文登等
+- CD：部署网站、发布包等
+
+这里使用 Github Actions 工具实现。
+
+::: code-group
+```yaml [.github/workflows/ci.yml]
+name: CI
+on:
+  push:
+    branches: [main]
+  # 允许手动触发
+  workflow_dispatch:
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11']
+        pdm-version: [2.4.7]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Check by pre-commit
+        uses: pre-commit/action@v3.0.0
+```
+
+```yaml [test.yml]
+name: Test
+on: [push]
+
+jobs:
+  test:
+    name: Testing
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11']
+        pdm-version: [2.7.4]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up PDM (with Python)
+        uses: pdm-project.setup-pdm@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+          version: ${{ matrix.pdm-version }}
+      - name: Install dependencies
+        run: |
+          pdm sync -d -G test
+      - name: Run Test
+        run: |
+          pdm run pytest --cov=./ --cov-report=xml tests
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+```
+
+```yaml [doc.yml]
+name: Deploy Doc
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        python-version:
+          - 3.11
+        pdm-version:
+          - 2.7.4
+        os:
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up PDM (with Python)
+        uses: pdm-project/setup-pdm@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+          version: ${{ matrix.pdm-version }}
+      - name: Install dependencies
+        run: pdm sync -d -G doc
+      - name: Build Site
+        run: pdm run mkdocs build
+      - name: Enable Pages App
+        uses: actions/configure-pages@v3
+      - name: Packaging and Uploading to Stage
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: site
+      - name: Deploy from Stage
+        id: deployment
+        uses: actions/deploy-pages@v2
+```
+
+```yaml [analysis.yml]
+# find security vulnerabilities
+name: Code Scanning - CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '11 1 * * 6'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [python]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+```
+:::
 
 ## References
 
 - https://www.pythonbynight.com/blog/starting-python-project 项目布局
-- https://py-pkgs.org/04-package-structure src 布局
+- https://py-pkgs.org/04-package-structure 关于 src 布局，还有开发规范介绍
+- https://scikit-hep.org/developer 另一个开发规范介绍
 - https://realpython.com/docker-continuous-integration/#dockerize-your-flask-web-application Docker 环境
+- https://keepachangelog.com/zh-CN/1.0.0/ 维护 changelog
+- https://builtwithdjango.com/blog/improve-your-code-with-pre-commit
