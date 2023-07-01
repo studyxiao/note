@@ -74,6 +74,7 @@ const sidebar = {
         { text: '打开网页的过程', link: '/network/web' },
         { text: 'HTTP协议', link: '/network/http' },
         { text: 'Websocket', link: '/network/websocket' },
+        { text: 'Socket', link: '/network/socket' },
       ],
     },
   ],
