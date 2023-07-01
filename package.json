@@ -2,7 +2,7 @@
   "name": "note",
   "version": "1.0.0",
   "description": "markdown notes",
-  "packageManager": "pnpm@8.6.3",
+  "packageManager": "pnpm@8.6.5",
   "scripts": {
     "dev": "vitepress dev",
     "docs:dev": "vitepress dev",
@@ -16,21 +16,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.5",
+    "@antfu/eslint-config": "^0.39.6",
     "@iconify-json/carbon": "^1.1.18",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
-    "taze": "^0.10.2",
+    "taze": "^0.11.2",
     "unplugin-auto-import": "^0.16.4",
     "unplugin-icons": "^0.16.3",
     "unplugin-vue-components": "^0.25.1",
     "vitepress": "1.0.0-beta.3"
   },
   "dependencies": {
-    "@vueuse/core": "^10.2.0",
+    "@vueuse/core": "^10.2.1",
     "vue": "^3.3.4"
   }
 }

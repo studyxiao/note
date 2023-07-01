@@ -21,7 +21,7 @@ const { elementX, elementY } = useMouseInElement(card)
         <slot name="image" />
       </div>
 
-      <div class="mt-5 text-2xl font-medium text-white">
+      <div class="mt-2.5 text-2xl font-medium text-white">
         <slot name="title" />
       </div>
 
