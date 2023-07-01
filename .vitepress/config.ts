@@ -16,6 +16,14 @@ const nav = [
     text: 'Vue',
     link: '/vue/',
   },
+  {
+    text: 'MySQL',
+    link: '/mysql/',
+  },
+  {
+    text: 'Network',
+    link: '/network/web',
+  },
 ]
 
 // 左侧导航（二级）
@@ -48,6 +56,24 @@ const sidebar = {
         { text: 'Websocket', link: '/python/websocket' },
         { text: '搜索', link: '/python/search' },
         { text: '文档', link: '/python/doc' },
+      ],
+    },
+  ],
+  '/mysql/': [
+    {
+      text: 'MySQL',
+      items: [
+        { text: 'MySQL本质', link: '/mysql/index' },
+      ],
+    },
+  ],
+  '/network/': [
+    {
+      text: '网络',
+      items: [
+        { text: '打开网页的过程', link: '/network/web' },
+        { text: 'HTTP协议', link: '/network/http' },
+        { text: 'Websocket', link: '/network/websocket' },
       ],
     },
   ],
