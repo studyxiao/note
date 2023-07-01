@@ -164,7 +164,8 @@ HTTPS 是为了解决 HTTP 的不安全性（明文传输）。HTTP over SSL/TLS
 
 过程：TCP 三次握手后，再进行 TLS 握手，之后就可以使用对称秘钥加密报文进行通信，关闭时直接TCP四次挥手。
 
-![img](./images/a28591c41cd64dfe8ceac856a9d40fa3tplv-k3u1fbpfcp-zoom-in-crop-mark1304000.awebp)
+<!-- ![img](./images/a28591c41cd64dfe8ceac856a9d40fa3tplv-k3u1fbpfcp-zoom-in-crop-mark1304000.awebp) -->
+
 
 ### 如何实现安全？
 
